@@ -1,0 +1,17 @@
+[user]
+	name = williambill0525
+	email = williambill0525@gmail.com
+
+[color]
+	ui = true
+
+[alias]
+	a = add
+	b = branch
+	bd = branch -D
+	bl = branch -l
+	cm = commit -m
+	co = checkout
+	sb = show-branch
+	st = status
+        DP = /c/Users/poyantan/william
