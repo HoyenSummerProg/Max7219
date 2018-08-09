@@ -132,9 +132,9 @@ void KEY_ClearLongPressCallback(KEY_Type key)
 }
 
 
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+void HAL_GPIO_EXTI_Callback(uint16_t a)
 {
-  switch(GPIO_Pin)
+  switch(a)
   {
     case GPIO_Pin_10:
       Key_Col = 0;
@@ -215,7 +215,7 @@ void HAL_TIM_PeriodElapsedCallback(void)
 
 		if(keyScanStep < PUSLE_ROW3)
 			keyScanStep++;
-		else
+		else 
 		{
 			keyScanStep = PUSLE_ROW1;
 			if(keyStruc.keyScanCounter++ > 7)
@@ -268,6 +268,7 @@ static void SetKeyColumnAsInput(void)
 	NVIC_InitTypeDef   NVIC_InitStructure;
 	
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
 
   /*Configure GPIO pins : COL_3_Pin COL_2_Pin COL_1_Pin */
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_12;
@@ -290,7 +291,7 @@ static void SetKeyColumnAsInput(void)
   /* Enable and set EXTI0 Interrupt */
   NVIC_InitStructure.NVIC_IRQChannel = EXTI4_15_IRQn;
   NVIC_InitStructure.NVIC_IRQChannelPriority = 0x00;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+  NVIC_InitStructure.NVIC_IRQChannelCmd = DISABLE;
   NVIC_Init(&NVIC_InitStructure);
 }
 
@@ -302,7 +303,8 @@ static void SetKeyColumnAsEXTI(void)
 	NVIC_InitTypeDef   NVIC_InitStructure;
 
   RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
-
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+	
   /*Configure GPIO pins : COL_3_Pin COL_2_Pin COL_1_Pin */
   GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_12;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;

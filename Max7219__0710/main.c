@@ -60,8 +60,8 @@ __IO uint32_t seed ;
 __IO bool stflag = LOW;
 __IO bool exflag = LOW;
 __IO uint8_t btnflag;
-__IO uint16_t CCR1_Val = 60000;
-uint16_t PrescalerValue = 47;
+__IO uint16_t CCR1_Val = 30000;
+uint16_t PrescalerValue = 7;
 __IO uint8_t timcount = 0;
 __IO uint8_t x1,x2,x3,x4,x5,x6,x7,x8;
 /* Private function prototypes -----------------------------------------------*/
@@ -98,7 +98,8 @@ __IO uint8_t t = 0x00;
   * @retval None
   */
 int main(void)
-{
+{	
+	Key_Init();
 	KEY_Type k;
 	uint16_t a = 0;
 	SPI1_Config();
@@ -107,7 +108,6 @@ int main(void)
 	SPICS2_Config();
 	GPIO_SCAN_Config();
 //	EXTI4_15_Config();
-	Key_Init();
 	SPI_Cmd(SPI1, ENABLE);
   if (SysTick_Config(SystemCoreClock / 1000))
   { 
@@ -270,37 +270,37 @@ void setDot(uint8_t x,uint8_t y,bool status)
 		}
 	}
 }
-static void EXTI4_15_Config(void)
-{
-  /* Enable GPIOA clock */
-  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
-  RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
-  /* Configure PA0 pin as input floating */
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_12;
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
-  GPIO_Init(GPIOC, &GPIO_InitStructure);
+//static void EXTI4_15_Config(void)
+//{
+//  /* Enable GPIOA clock */
+//  RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOC, ENABLE);
+//  RCC_APB2PeriphClockCmd(RCC_APB2Periph_SYSCFG, ENABLE);
+//  /* Configure PA0 pin as input floating */
+//  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10|GPIO_Pin_11|GPIO_Pin_12;
+//  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;
+//  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
+//  GPIO_Init(GPIOC, &GPIO_InitStructure);
 
-  /* Enable SYSCFG clock */
-  
-  /* Connect EXTI0 Line to PA0 pin */
-  SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOC, EXTI_PinSource10);
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOC, EXTI_PinSource11);
-	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOC, EXTI_PinSource12);
+//  /* Enable SYSCFG clock */
+//  
+//  /* Connect EXTI0 Line to PA0 pin */
+//  SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOC, EXTI_PinSource10);
+//	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOC, EXTI_PinSource11);
+//	SYSCFG_EXTILineConfig(EXTI_PortSourceGPIOC, EXTI_PinSource12);
 
-  /* Configure EXTI0 line */
-  EXTI_InitStructure.EXTI_Line = EXTI_Line10|EXTI_Line11|EXTI_Line12;
-  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
-  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
-  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-  EXTI_Init(&EXTI_InitStructure);
+//  /* Configure EXTI0 line */
+//  EXTI_InitStructure.EXTI_Line = EXTI_Line10|EXTI_Line11|EXTI_Line12;
+//  EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;
+//  EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Rising;
+//  EXTI_InitStructure.EXTI_LineCmd = ENABLE;
+//  EXTI_Init(&EXTI_InitStructure);
 
-  /* Enable and set EXTI0 Interrupt */
-  NVIC_InitStructure.NVIC_IRQChannel = EXTI4_15_IRQn;
-  NVIC_InitStructure.NVIC_IRQChannelPriority = 0x00;
-  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
-  NVIC_Init(&NVIC_InitStructure);
-}
+//  /* Enable and set EXTI0 Interrupt */
+//  NVIC_InitStructure.NVIC_IRQChannel = EXTI4_15_IRQn;
+//  NVIC_InitStructure.NVIC_IRQChannelPriority = 0x00;
+//  NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
+//  NVIC_Init(&NVIC_InitStructure);
+//}
 
 static void SPI1_Config(void)
 {
@@ -384,11 +384,11 @@ void Write_Max7219(unsigned char address,unsigned char data,uint8_t quantity)
 void Write_Max7219_2(unsigned char address,unsigned char data,uint8_t quantity)
 {
 	Buffer = (data << 8) + address ;
-	GPIO_ResetBits(GPIOA,GPIO_Pin_12);
+	GPIO_ResetBits(GPIOB,GPIO_Pin_1);
 	SPI_I2S_SendData16(SPI1,Buffer);
 	while(SPI_I2S_GetFlagStatus(SPIx, SPI_I2S_FLAG_BSY) == SET)
 	{}
-	GPIO_SetBits(GPIOA,GPIO_Pin_12);
+	GPIO_SetBits(GPIOB,GPIO_Pin_1);
 }
 
 void SPICS1_Config(void)
@@ -405,15 +405,15 @@ void SPICS1_Config(void)
 }
 void SPICS2_Config(void)
 {
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOA, ENABLE);
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_GPIOB, ENABLE);
 	
-  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12;
+  GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1;
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
   GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
   GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-  GPIO_Init(GPIOA, &GPIO_InitStructure);
-	GPIO_SetBits(GPIOA,GPIO_Pin_12);
+  GPIO_Init(GPIOB, &GPIO_InitStructure);
+	GPIO_SetBits(GPIOB,GPIO_Pin_1);
 }
 static void TIM_Config(void)
 {

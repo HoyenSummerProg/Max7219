@@ -111,12 +111,12 @@ void EXTI4_15_IRQHandler(void)
 		EXTI_ClearITPendingBit(EXTI_Line10);
 		HAL_GPIO_EXTI_Callback(GPIO_Pin_10);
   }
-	if(EXTI_GetITStatus(EXTI_Line11) != RESET)
+	else if(EXTI_GetITStatus(EXTI_Line11) != RESET)
   {
     EXTI_ClearITPendingBit(EXTI_Line11);
 		HAL_GPIO_EXTI_Callback(GPIO_Pin_11);
   }
-	if(EXTI_GetITStatus(EXTI_Line12) != RESET)
+	else if(EXTI_GetITStatus(EXTI_Line12) != RESET)
   {
     EXTI_ClearITPendingBit(EXTI_Line12);
 		HAL_GPIO_EXTI_Callback(GPIO_Pin_12);

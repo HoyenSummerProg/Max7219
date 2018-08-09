@@ -3,7 +3,7 @@
 <title>Static Call Graph - [STM32F030\STM32F030.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32F030\STM32F030.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Aug 02 16:23:53 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Aug 09 15:40:35 2018
 <BR><P>
 <H3>Maximum Stack Usage =         76 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -207,7 +207,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[c]"></a>EXTI4_15_IRQHandler</STRONG> (Thumb, 88 bytes, Stack size 8 bytes, stm32f0xx_it.o(i.EXTI4_15_IRQHandler))
+<P><STRONG><a name="[c]"></a>EXTI4_15_IRQHandler</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, stm32f0xx_it.o(i.EXTI4_15_IRQHandler))
 <BR><BR>[Stack]<UL><LI>Max Depth = 76<LI>Call Chain = EXTI4_15_IRQHandler &rArr; HAL_GPIO_EXTI_Callback &rArr; SetKeyColumnAsInput &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
@@ -372,7 +372,9 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[41]"></a>RCC_APB2PeriphClockCmd</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(i.RCC_APB2PeriphClockCmd))
-<BR><BR>[Called By]<UL><LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Config
+<BR><BR>[Called By]<UL><LI><a href="#[30]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetKeyColumnAsInput
+<LI><a href="#[37]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SetKeyColumnAsEXTI
+<LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Config
 </UL>
 
 <P><STRONG><a name="[48]"></a>RCC_APB2PeriphResetCmd</STRONG> (Thumb, 28 bytes, Stack size 0 bytes, stm32f0xx_rcc.o(i.RCC_APB2PeriphResetCmd))
@@ -389,7 +391,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[47]"></a>SPICS2_Config</STRONG> (Thumb, 56 bytes, Stack size 8 bytes, main.o(i.SPICS2_Config))
+<P><STRONG><a name="[47]"></a>SPICS2_Config</STRONG> (Thumb, 48 bytes, Stack size 8 bytes, main.o(i.SPICS2_Config))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = SPICS2_Config &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
@@ -514,7 +516,7 @@ Global Symbols
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_Init
 </UL>
 
-<P><STRONG><a name="[3b]"></a>Write_Max7219_2</STRONG> (Thumb, 66 bytes, Stack size 16 bytes, main.o(i.Write_Max7219_2))
+<P><STRONG><a name="[3b]"></a>Write_Max7219_2</STRONG> (Thumb, 58 bytes, Stack size 16 bytes, main.o(i.Write_Max7219_2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 16<LI>Call Chain = Write_Max7219_2
 </UL>
 <BR>[Calls]<UL><LI><a href="#[54]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_I2S_SendData16
@@ -618,27 +620,29 @@ Local Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
 </UL>
 
-<P><STRONG><a name="[37]"></a>SetKeyColumnAsEXTI</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, key.o(i.SetKeyColumnAsEXTI))
+<P><STRONG><a name="[37]"></a>SetKeyColumnAsEXTI</STRONG> (Thumb, 116 bytes, Stack size 24 bytes, key.o(i.SetKeyColumnAsEXTI))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = SetKeyColumnAsEXTI &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_EXTILineConfig
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Init
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
 </UL>
 
-<P><STRONG><a name="[30]"></a>SetKeyColumnAsInput</STRONG> (Thumb, 108 bytes, Stack size 24 bytes, key.o(i.SetKeyColumnAsInput))
+<P><STRONG><a name="[30]"></a>SetKeyColumnAsInput</STRONG> (Thumb, 114 bytes, Stack size 24 bytes, key.o(i.SetKeyColumnAsInput))
 <BR><BR>[Stack]<UL><LI>Max Depth = 44<LI>Call Chain = SetKeyColumnAsInput &rArr; GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[4a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SYSCFG_EXTILineConfig
+<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Init
+<LI><a href="#[41]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_APB2PeriphClockCmd
 <LI><a href="#[2d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RCC_AHBPeriphClockCmd
 <LI><a href="#[45]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_Init
 <LI><a href="#[2e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_Init
-<LI><a href="#[4b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EXTI_Init
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_EXTI_Callback
 </UL>
