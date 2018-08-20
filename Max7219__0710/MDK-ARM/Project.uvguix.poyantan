@@ -3596,11 +3596,11 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>..\main.c</Name>
-        <ColumnNumber>32</ColumnNumber>
-        <TopLine>102</TopLine>
-        <CurrentLine>134</CurrentLine>
+        <ColumnNumber>8</ColumnNumber>
+        <TopLine>145</TopLine>
+        <CurrentLine>178</CurrentLine>
         <Folding>1</Folding>
-        <ContractedFolders>160,171,513,593,600</ContractedFolders>
+        <ContractedFolders>187,198,540,620,627</ContractedFolders>
         <PaneID>0</PaneID>
       </Doc>
       <Doc>

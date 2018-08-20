@@ -142,14 +142,41 @@ int main(void)
 	    {
 	 	   runcircle(i,a);
 	    }
-			for(int i=0;i<8;i++)
-			{
-				x[i]=0;
-			}
 			exflag = LOW;
 			stflag =LOW;
 			clear_2();
 			effect(a-84);
+			if((a==88)||(a==100))
+			{
+				if(a==88)
+				{
+					for(int i=0;i<4;i++)
+					{
+						x[i]=0;
+					}
+				}
+				else
+				{
+					for(int i=4;i<8;i++)
+					{
+						x[i]=0;
+					}
+				}
+			}
+			else
+			{
+				for(int i=0;i<8;i++)
+				{
+					x[i]=0;
+				}
+		  }
+			for(int i=0;i<5;i++)
+			Delay_ms(1000);
+			clear_2();
+			for(int i=0;i<8;i++)
+		  {
+			  Write_Max7219_2(i+1,x[i],1);
+		  }
 		}
   }
 }
