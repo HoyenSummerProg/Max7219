@@ -30,6 +30,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f0xx_it.h"
 #include "stdbool.h"
+#include "key.h"
 /** @addtogroup Template_Project
   * @{
   */
@@ -49,6 +50,8 @@ void TimingDelay_us_Decrement(void);
 void Delay_us(__IO uint32_t nTime);
 void TimingDelay_ms_Decrement(void);
 void Delay_ms(__IO uint32_t nTime_ms);
+extern void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin);
+extern void HAL_TIM_PeriodElapsedCallback(void);
 /******************************************************************************/
 /*            Cortex-M0 Processor Exceptions Handlers                         */
 /******************************************************************************/

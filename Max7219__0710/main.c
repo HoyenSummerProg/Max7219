@@ -60,10 +60,10 @@ __IO uint32_t seed ;
 __IO bool stflag = LOW;
 __IO bool exflag = LOW;
 __IO uint8_t btnflag;
-__IO uint16_t CCR1_Val = 30000;
-uint16_t PrescalerValue = 7;
+__IO uint16_t CCR1_Val = 0;
+uint16_t PrescalerValue = 1999;
 __IO uint8_t timcount = 0;
-__IO uint8_t x1,x2,x3,x4,x5,x6,x7,x8;
+__IO uint8_t x[8];
 /* Private function prototypes -----------------------------------------------*/
 //static void TIM_Config(void);
 /* Private functions ---------------------------------------------------------*/
@@ -87,6 +87,8 @@ void runcircle(uint8_t t,uint8_t stop);
 void setDot(uint8_t x,uint8_t y,bool status);
 void scan(uint8_t line);
 void keyscan(void);
+void effect(uint8_t fa);
+void dis_num(uint16_t input);
 void GPIO_SCAN_Config(void);
 void stop(uint8_t tos,uint8_t address,uint8_t now);
 uint8_t transferangle(uint8_t number,uint8_t bit);
@@ -122,20 +124,33 @@ int main(void)
 		k = GetKey();
 		if(k!=KEY_None)
 		{
-			Write_Max7219_2(0x01,k+1,1);
+			x[k]++;
+			if(k+1>=9)
+			{
+				exflag=HIGH;
+			}
+			else
+			{
+			  Write_Max7219_2(k+1,x[k],1);
+			}
 		}
-//		a= ran();
-//		if(exflag == HIGH)
-//		{
-//			clear();
-//			for(int i=20;i<=300;i+=70)
-//	    {
-//	 	   runcircle(i,a);
-//	    }
-//			exflag = LOW;
-//			stflag =LOW;
-//			clear_2();
-//		}
+		a= ran();
+		if(exflag == HIGH)
+		{
+			clear();
+			for(int i=20;i<=300;i+=70)
+	    {
+	 	   runcircle(i,a);
+	    }
+			for(int i=0;i<8;i++)
+			{
+				x[i]=0;
+			}
+			exflag = LOW;
+			stflag =LOW;
+			clear_2();
+			effect(a-84);
+		}
   }
 }
 uint16_t ran(void)
@@ -204,6 +219,110 @@ void clear(void)
 		Write_Max7219(i,0x00,2);
 		Write_Max7219(i,0x00,3);
 		Write_Max7219(i,0x00,4);
+	}
+}
+void effect(uint8_t fa)
+{
+	switch(fa)
+	{
+		case 1:
+			dis_num(75*x[2]);
+		  break;
+		case 2:
+			dis_num(100*x[6]);
+		  break;
+		case 3:
+			dis_num(10*x[0]);
+		  break;
+		case 4:
+			dis_num(100);
+		  break;
+		case 5:
+			dis_num(25*x[7]);
+		  break;
+		case 6:
+			dis_num(10*x[0]);
+		  break;
+		case 7:
+			dis_num(50*x[1]);
+		  break;
+		case 8:
+			dis_num(100*x[3]);
+		  break;
+		case 9:
+			dis_num(10*x[0]);
+		  break;
+		case 10:
+			dis_num(200*x[4]);
+		  break;
+		case 11:
+			dis_num(25*x[7]);
+		  break;
+		case 12:
+			dis_num(10*x[0]);
+		  break;
+		case 13:
+			dis_num(75*x[2]);
+		  break;
+		case 14:
+			dis_num(150*x[5]);
+		  break;
+		case 15:
+			dis_num(10*x[0]);
+		  break;
+		case 16:
+			dis_num(100);
+		  break;
+		case 17:
+			dis_num(25*x[7]);
+		  break;
+		case 18:
+			dis_num(10*x[0]);
+		  break;
+		case 19:
+			dis_num(50*x[1]);
+		  break;
+		case 20:
+			dis_num(100*x[3]);
+		  break;
+		case 21:
+			dis_num(250);
+		  break;
+		case 22:
+			dis_num(500);
+		  break;
+		case 23:
+			dis_num(25*x[7]);
+		  break;
+		case 24:
+			dis_num(10*x[0]);
+		  break;
+		default:
+			break;
+	}
+}
+void dis_num(uint16_t input)
+{
+	int a,b,c;
+	if(input<10)
+	{
+		Write_Max7219_2(1,input,1);
+	}
+	else if((input>=10)&&(input<100))
+	{
+		a=input%10;
+		b=input/10;
+		Write_Max7219_2(2,b,1);
+		Write_Max7219_2(1,a,1);
+	}
+	else if((input>=100)&&(input<1000))
+	{
+		a=input%10;
+		b=input/10;
+		c=b/10;
+		Write_Max7219_2(3,c,1);
+		Write_Max7219_2(2,b,1);
+		Write_Max7219_2(1,a,1);
 	}
 }
 void clear_2(void)
@@ -445,7 +564,7 @@ static void TIM_Config(void)
   NVIC_Init(&NVIC_InitStructure);   
 
   /* Time base configuration */
-  TIM_TimeBaseStructure.TIM_Period = 65535;
+  TIM_TimeBaseStructure.TIM_Period = 47;
   TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;
   TIM_TimeBaseStructure.TIM_ClockDivision = 0;
   TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;

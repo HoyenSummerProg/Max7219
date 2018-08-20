@@ -3,7 +3,7 @@
 <title>Static Call Graph - [STM32F030\STM32F030.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image STM32F030\STM32F030.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Thu Aug 09 15:40:35 2018
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060750: Last Updated: Mon Aug 20 10:22:53 2018
 <BR><P>
 <H3>Maximum Stack Usage =         76 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -58,7 +58,7 @@ Global Symbols
 <P><STRONG><a name="[20]"></a>__main</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry.o(.ARM.Collect$$$$00000000))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f030.o(.text)
 </UL>
-<P><STRONG><a name="[5a]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
+<P><STRONG><a name="[60]"></a>_main_stk</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry2.o(.ARM.Collect$$$$00000001))
 
 <P><STRONG><a name="[21]"></a>_main_scatterload</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry5.o(.ARM.Collect$$$$00000004))
 <BR><BR>[Calls]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
@@ -68,15 +68,15 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[22]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__scatterload
 </UL>
 
-<P><STRONG><a name="[5b]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
+<P><STRONG><a name="[61]"></a>_main_clock</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry7b.o(.ARM.Collect$$$$00000008))
 
-<P><STRONG><a name="[5c]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
+<P><STRONG><a name="[62]"></a>_main_cpp_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry8b.o(.ARM.Collect$$$$0000000A))
 
-<P><STRONG><a name="[5d]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
+<P><STRONG><a name="[63]"></a>_main_init</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry9a.o(.ARM.Collect$$$$0000000B))
 
-<P><STRONG><a name="[5e]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
+<P><STRONG><a name="[64]"></a>__rt_final_cpp</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry10a.o(.ARM.Collect$$$$0000000D))
 
-<P><STRONG><a name="[5f]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
+<P><STRONG><a name="[65]"></a>__rt_final_exit</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, entry11a.o(.ARM.Collect$$$$0000000F))
 
 <P><STRONG><a name="[0]"></a>Reset_Handler</STRONG> (Thumb, 38 bytes, Stack size 0 bytes, startup_stm32f030.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f030.o(RESET)
@@ -151,16 +151,17 @@ Global Symbols
 <P><STRONG><a name="[6]"></a>WWDG_IRQHandler</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, startup_stm32f030.o(.text))
 <BR>[Address Reference Count : 1]<UL><LI> startup_stm32f030.o(RESET)
 </UL>
-<P><STRONG><a name="[60]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
+<P><STRONG><a name="[66]"></a>__aeabi_uidiv</STRONG> (Thumb, 0 bytes, Stack size 12 bytes, uidiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[24]"></a>__aeabi_uidivmod</STRONG> (Thumb, 44 bytes, Stack size 12 bytes, uidiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_uidivmod
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ran
+<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 <LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
 </UL>
 
-<P><STRONG><a name="[61]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
+<P><STRONG><a name="[67]"></a>__aeabi_idiv</STRONG> (Thumb, 0 bytes, Stack size 16 bytes, idiv.o(.text), UNUSED)
 
 <P><STRONG><a name="[23]"></a>__aeabi_idivmod</STRONG> (Thumb, 40 bytes, Stack size 16 bytes, idiv.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 28<LI>Call Chain = __aeabi_idivmod &rArr; __aeabi_uidivmod
@@ -168,6 +169,7 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dis_num
 </UL>
 
 <P><STRONG><a name="[26]"></a>__aeabi_memset</STRONG> (Thumb, 14 bytes, Stack size 0 bytes, memseta.o(.text))
@@ -175,9 +177,9 @@ Global Symbols
 <LI><a href="#[25]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memclr
 </UL>
 
-<P><STRONG><a name="[62]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[68]"></a>__aeabi_memset4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[63]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[69]"></a>__aeabi_memset8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[25]"></a>__aeabi_memclr</STRONG> (Thumb, 4 bytes, Stack size 0 bytes, memseta.o(.text))
 <BR><BR>[Calls]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -185,9 +187,9 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[35]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_TIM_PeriodElapsedCallback
 </UL>
 
-<P><STRONG><a name="[64]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[6a]"></a>__aeabi_memclr4</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
-<P><STRONG><a name="[65]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
+<P><STRONG><a name="[6b]"></a>__aeabi_memclr8</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, memseta.o(.text), UNUSED)
 
 <P><STRONG><a name="[27]"></a>_memset$wrapper</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, memseta.o(.text), UNUSED)
 <BR><BR>[Calls]<UL><LI><a href="#[26]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_memset
@@ -199,12 +201,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[21]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_main_scatterload
 </UL>
 
-<P><STRONG><a name="[66]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
+<P><STRONG><a name="[6c]"></a>__scatterload_rt2</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, init.o(.text), UNUSED)
 
-<P><STRONG><a name="[58]"></a>Delay_ms</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(i.Delay_ms))
+<P><STRONG><a name="[5b]"></a>Delay_ms</STRONG> (Thumb, 20 bytes, Stack size 8 bytes, main.o(i.Delay_ms))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = Delay_ms
 </UL>
-<BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runcircle
+<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
 <P><STRONG><a name="[c]"></a>EXTI4_15_IRQHandler</STRONG> (Thumb, 92 bytes, Stack size 8 bytes, stm32f0xx_it.o(i.EXTI4_15_IRQHandler))
@@ -278,7 +281,7 @@ Global Symbols
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SCAN_Config
 </UL>
 
-<P><STRONG><a name="[59]"></a>GetKey</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, key.o(i.GetKey))
+<P><STRONG><a name="[5c]"></a>GetKey</STRONG> (Thumb, 18 bytes, Stack size 0 bytes, key.o(i.GetKey))
 <BR><BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -401,7 +404,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[56]"></a>SPI_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f0xx_spi.o(i.SPI_Cmd))
+<P><STRONG><a name="[59]"></a>SPI_Cmd</STRONG> (Thumb, 24 bytes, Stack size 0 bytes, stm32f0xx_spi.o(i.SPI_Cmd))
 <BR><BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
@@ -512,7 +515,9 @@ Global Symbols
 <LI><a href="#[2f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SetBits
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear
+<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stop
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runcircle
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_Init
 </UL>
 
@@ -525,22 +530,32 @@ Global Symbols
 <LI><a href="#[31]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_ResetBits
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dis_num
 <LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_2
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_2_Init
 </UL>
 
-<P><STRONG><a name="[67]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
+<P><STRONG><a name="[58]"></a>__ARM_common_switch8</STRONG> (Thumb, 28 bytes, Stack size 8 bytes, main.o(i.__ARM_common_switch8))
+<BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = __ARM_common_switch8
+</UL>
+<BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;effect
+</UL>
 
-<P><STRONG><a name="[68]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+<P><STRONG><a name="[6d]"></a>__scatterload_copy</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_copy), UNUSED)
 
-<P><STRONG><a name="[69]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
+<P><STRONG><a name="[6e]"></a>__scatterload_null</STRONG> (Thumb, 2 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_null), UNUSED)
+
+<P><STRONG><a name="[6f]"></a>__scatterload_zeroinit</STRONG> (Thumb, 14 bytes, Stack size unknown bytes, handlers.o(i.__scatterload_zeroinit), UNUSED)
 
 <P><STRONG><a name="[3f]"></a>clear</STRONG> (Thumb, 54 bytes, Stack size 8 bytes, main.o(i.clear))
 <BR><BR>[Stack]<UL><LI>Max Depth = 32<LI>Call Chain = clear &rArr; Write_Max7219
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_Init
+<BR>[Called By]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stop
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runcircle
+<LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_Init
 </UL>
 
 <P><STRONG><a name="[3c]"></a>clear_2</STRONG> (Thumb, 24 bytes, Stack size 8 bytes, main.o(i.clear_2))
@@ -548,29 +563,81 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219_2
 </UL>
-<BR>[Called By]<UL><LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_2_Init
+<BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+<LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_2_Init
 </UL>
 
-<P><STRONG><a name="[1e]"></a>main</STRONG> (Thumb, 142 bytes, Stack size 0 bytes, main.o(i.main))
+<P><STRONG><a name="[56]"></a>dis_num</STRONG> (Thumb, 144 bytes, Stack size 24 bytes, main.o(i.dis_num))
+<BR><BR>[Stack]<UL><LI>Max Depth = 52<LI>Call Chain = dis_num &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219_2
+<LI><a href="#[23]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_idivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;effect
+</UL>
+
+<P><STRONG><a name="[57]"></a>effect</STRONG> (Thumb, 398 bytes, Stack size 8 bytes, main.o(i.effect))
+<BR><BR>[Stack]<UL><LI>Max Depth = 60<LI>Call Chain = effect &rArr; dis_num &rArr; __aeabi_idivmod &rArr; __aeabi_uidivmod
+</UL>
+<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;dis_num
+<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__ARM_common_switch8
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[1e]"></a>main</STRONG> (Thumb, 248 bytes, Stack size 0 bytes, main.o(i.main))
 <BR><BR>[Stack]<UL><LI>Max Depth = 68<LI>Call Chain = main &rArr; TIM_Config &rArr; GPIO_PinAFConfig
 </UL>
-<BR>[Calls]<UL><LI><a href="#[56]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
+<BR>[Calls]<UL><LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI_Cmd
 <LI><a href="#[38]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Key_Init
-<LI><a href="#[59]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetKey
+<LI><a href="#[5c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GetKey
+<LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runcircle
+<LI><a href="#[5d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ran
+<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;effect
+<LI><a href="#[3c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear_2
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear
 <LI><a href="#[3b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219_2
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPICS2_Config
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPICS1_Config
 <LI><a href="#[3d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_Init
 <LI><a href="#[3a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Max7219_2_Init
 <LI><a href="#[2c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;GPIO_SCAN_Config
-<LI><a href="#[58]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
 <LI><a href="#[50]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;TIM_Config
 <LI><a href="#[40]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SPI1_Config
-<LI><a href="#[57]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
+<LI><a href="#[5a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;NVIC_SetPriority
 <LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> entry9a.o(.ARM.Collect$$$$0000000B)
-</UL><P>
+</UL>
+<P><STRONG><a name="[5d]"></a>ran</STRONG> (Thumb, 18 bytes, Stack size 8 bytes, main.o(i.ran))
+<BR><BR>[Stack]<UL><LI>Max Depth = 20<LI>Call Chain = ran &rArr; __aeabi_uidivmod
+</UL>
+<BR>[Calls]<UL><LI><a href="#[24]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uidivmod
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[5e]"></a>runcircle</STRONG> (Thumb, 240 bytes, Stack size 16 bytes, main.o(i.runcircle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = runcircle &rArr; stop &rArr; clear &rArr; Write_Max7219
+</UL>
+<BR>[Calls]<UL><LI><a href="#[5f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;stop
+<LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219
+<LI><a href="#[5b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Delay_ms
+</UL>
+<BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
+</UL>
+
+<P><STRONG><a name="[5f]"></a>stop</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, main.o(i.stop))
+<BR><BR>[Stack]<UL><LI>Max Depth = 48<LI>Call Chain = stop &rArr; clear &rArr; Write_Max7219
+</UL>
+<BR>[Calls]<UL><LI><a href="#[3f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;clear
+<LI><a href="#[3e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Write_Max7219
+</UL>
+<BR>[Called By]<UL><LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;runcircle
+</UL>
+<P>
 <H3>
 Local Symbols
 </H3>
@@ -580,7 +647,7 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[1f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;SystemInit
 </UL>
 
-<P><STRONG><a name="[57]"></a>NVIC_SetPriority</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, main.o(i.NVIC_SetPriority))
+<P><STRONG><a name="[5a]"></a>NVIC_SetPriority</STRONG> (Thumb, 110 bytes, Stack size 8 bytes, main.o(i.NVIC_SetPriority))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = NVIC_SetPriority
 </UL>
 <BR>[Called By]<UL><LI><a href="#[1e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main

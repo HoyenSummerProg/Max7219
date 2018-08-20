@@ -33,3 +33,6 @@ stm32f030\stm32f0xx_it.o: ..\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm3
 stm32f030\stm32f0xx_it.o: ..\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_wwdg.h
 stm32f030\stm32f0xx_it.o: ..\..\..\Libraries\STM32F0xx_StdPeriph_Driver\inc\stm32f0xx_misc.h
 stm32f030\stm32f0xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+stm32f030\stm32f0xx_it.o: ..\key.h
+stm32f030\stm32f0xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+stm32f030\stm32f0xx_it.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h

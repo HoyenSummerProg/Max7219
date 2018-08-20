@@ -132,9 +132,9 @@ void KEY_ClearLongPressCallback(KEY_Type key)
 }
 
 
-void HAL_GPIO_EXTI_Callback(uint16_t a)
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
-  switch(a)
+  switch(GPIO_Pin)
   {
     case GPIO_Pin_10:
       Key_Col = 0;
@@ -218,11 +218,11 @@ void HAL_TIM_PeriodElapsedCallback(void)
 		else 
 		{
 			keyScanStep = PUSLE_ROW1;
-			if(keyStruc.keyScanCounter++ > 7)
+			if(keyStruc.keyScanCounter++ > 3)
 			{
 				for(i = 0; i < KEY_NUM; i++)
 				{
-					if(keyStruc.keyInputHighCount[i] > 5)
+					if(keyStruc.keyInputHighCount[i] > 3)
 					{
 						keyStruc.LastKeyPressed = (KEY_Type)KeyMatrix[i / 3][i % 3];
 						//TODO: add code to check key up
@@ -244,7 +244,7 @@ void HAL_TIM_PeriodElapsedCallback(void)
 		if(KeyReadColLow(COL_GPIO_PORT[Key_Col], COL_GPIO_Pin[Key_Col]))
 		{
 			/* Key up, set column pins as EXTI */
-			if( keyStruc.keyUpCounter++ > 5)
+			if( keyStruc.keyUpCounter++ > 2)
 			{
 				TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 				TIM_Cmd(TIM3, DISABLE);
